@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- Alpine Plugins -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Alpine Core -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Starfield -->
+    <script src="./js/starfield.js" defer></script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+
+    <!-- PAGE TITLE -->
+    <title>Sign in | Nebula</title>
+    <meta
+      name="description"
+      content="Access your Nebula account by signing in. Enjoy seamless remote work collaboration and tools."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Sign in | Nebula" />
+    <meta
+      property="og:description"
+      content="Access your Nebula account by signing in. Enjoy seamless remote work collaboration and tools."
+    />
+    <meta property="og:image" content="./images/nebula-og.png" />
+
+    <!---- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Sign in | Nebula" />
+    <meta
+      property="twitter:description"
+      content="Access your Nebula account by signing in. Enjoy seamless remote work collaboration and tools."
+    />
+    <meta property="twitter:image" content="./images/nebula-og.png" />
+  </head>
+
+  <body class="bg-zinc-900">
+    <!-- Hero container -->
+    <section
+      class="relative flex min-h-screen items-center justify-center overflow-hidden py-16 sm:py-20"
+    >
+      <!-- Background gradient -->
+      <div class="w-full">
+        <img
+          src="./images/hero-space-waves.png"
+          alt=""
+          class="absolute inset-x-0 -top-48 bottom-0 -z-20 h-[calc(100%_+_320px)] w-full object-cover"
+        />
+
+        <!-- Starfield -->
+        <div class="absolute inset-0 -z-10" aria-hidden="true">
+          <canvas
+            class="opacity-0 duration-1000 ease-in-out"
+            data-starfield
+          ></canvas>
+        </div>
+
+        <div
+          class="absolute -right-48 top-64 max-w-6xl translate-x-16 translate-y-full sm:top-96 sm:translate-y-1/3 md:right-0 md:w-full lg:top-0 lg:translate-x-1/4 lg:translate-y-0"
+        >
+          <img
+            src="./images/space-spotlight.png"
+            alt=""
+            class="h-full w-full object-contain opacity-50 lg:opacity-75"
+          />
+        </div>
+
+        <div class="absolute -left-96 -right-96 -top-96 bottom-0 -z-10">
+          <image
+            src="./images/cosmic-butterfly.png"
+            alt=""
+            class="h-[calc(100%_+_384px)] w-[calc(100%_+_768px)] opacity-10 lg:opacity-5"
+          />
+        </div>
+
+        <div
+          class="absolute -left-8 bottom-0 -z-10 hidden h-96 w-44 rotate-[-25deg] sm:bottom-8 sm:left-20 lg:bottom-[unset] lg:left-[unset] lg:right-48 lg:h-[550px] xl:block"
+          aria-hidden="true"
+        >
+          <canvas
+            class="opacity-0 duration-1000 ease-in-out"
+            data-starfield
+            data-max-radius="2.25"
+            data-density="high"
+          ></canvas>
+        </div>
+
+        <a
+          href="index.html"
+          class="group absolute right-4 top-4 hidden items-center rounded-lg bg-zinc-950/[.01] p-2 text-sm font-semibold leading-none text-violet-50 antialiased shadow-btn-secondary outline-hidden duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:shadow-btn-secondary-hover after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100 sm:flex lg:right-12 lg:top-12 lg:p-2.5"
+          ><div
+            class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="h-4.5 w-4.5 lg:h-5 lg:w-5"
+            >
+              <path
+                d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <!-- Sign in form container -->
+        <div class="mx-auto w-full max-w-lg px-5 py-5 sm:px-6 lg:px-8">
+          <div class="relative z-10 flex flex-col shadow-inner-blur">
+            <!-- Container lines -->
+            <span
+              class="absolute -bottom-5 -top-5 left-0 w-px bg-linear-to-b from-violet-200/5 via-violet-200/[0.08] to-violet-200/5 sm:-bottom-8 sm:-top-8 lg:-bottom-16 lg:-top-16"
+            ></span>
+            <span
+              class="absolute -bottom-5 -top-5 right-0 w-px bg-linear-to-b from-violet-200/5 via-violet-200/[0.08] to-violet-200/5 sm:-bottom-8 sm:-top-8 lg:-bottom-16 lg:-top-16"
+            ></span>
+            <span
+              class="absolute -left-5 -right-5 top-0 h-px bg-linear-to-r from-violet-200/5 via-violet-200/[0.08] to-violet-200/5 sm:-left-8 sm:-right-8 lg:-left-16 lg:-right-16"
+            ></span>
+            <span
+              class="absolute -left-5 -right-5 bottom-0 h-px bg-linear-to-r from-violet-200/5 via-violet-200/[0.08] to-violet-200/5 sm:-left-8 sm:-right-8 lg:-left-16 lg:-right-16"
+            ></span>
+
+            <!-- corner dots -->
+            <span
+              class="absolute -left-[1.5px] -top-[1.5px] h-1 w-1 rounded-full bg-violet-200"
+            ></span>
+            <span
+              class="absolute -right-[1.5px] -top-[1.5px] h-1 w-1 rounded-full bg-violet-200"
+            ></span>
+            <span
+              class="absolute -bottom-[1.5px] -left-[1.5px] h-1 w-1 rounded-full bg-violet-200"
+            ></span>
+            <span
+              class="absolute -bottom-[1.5px] -right-[1.5px] h-1 w-1 rounded-full bg-violet-200"
+            ></span>
+
+            <!-- Form header -->
+            <div class="flex flex-col items-center px-6 pt-10 sm:px-10">
+              <a href="index.html" class="flex shrink-0" aria-label="Home">
+                <img
+                  src="./images/logo-icon.png"
+                  class="h-auto w-12"
+                  alt="Logo"
+                />
+              </a>
+              <h1 class="mt-4 text-center text-3xl font-bold text-violet-100">
+                Welcome back
+              </h1>
+              <p
+                class="mt-1.5 text-center text-base leading-relaxed text-zinc-300"
+              >
+                Fill in the details below to sign in.
+              </p>
+
+              <div
+                class="mt-8 flex w-full flex-col items-center gap-4 sm:flex-row"
+              >
+                <button
+                  class="group relative inline-flex w-full max-w-60 items-center rounded-lg bg-zinc-700/25 px-4 py-2 text-sm font-semibold leading-6 text-violet-50 antialiased shadow-btn-secondary outline-hidden duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:shadow-btn-secondary-hover after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100 sm:w-1/2 sm:max-w-none"
+                >
+                  <div
+                    class="relative z-10 flex w-full items-center justify-between space-x-2 text-nowrap"
+                  >
+                    <div class="flex items-center">
+                      <svg
+                        class="mr-2 h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                      >
+                        <title>google</title>
+                        <g>
+                          <path
+                            d="M24,11a12.932,12.932,0,0,1,8.346,3.047l6.54-6.228A21.973,21.973,0,0,0,4.293,14.236l7.373,5.683A13.016,13.016,0,0,1,24,11Z"
+                            fill="#d94f3d"
+                          ></path>
+                          <path
+                            d="M11,24a12.942,12.942,0,0,1,.666-4.081L4.293,14.236a21.935,21.935,0,0,0,0,19.528l7.373-5.683A12.942,12.942,0,0,1,11,24Z"
+                            fill="#f2c042"
+                          ></path>
+                          <path
+                            d="M45.1,20h-21v9H36a10.727,10.727,0,0,1-4.555,6.162l7.316,5.64C43.436,36.606,46.183,29.783,45.1,20Z"
+                            fill="#5085ed"
+                          ></path>
+                          <path
+                            d="M31.442,35.162A13.98,13.98,0,0,1,24,37a13.016,13.016,0,0,1-12.334-8.919L4.293,33.764A22.023,22.023,0,0,0,24,46a21.865,21.865,0,0,0,14.758-5.2Z"
+                            fill="#57a75c"
+                          ></path>
+                        </g>
+                      </svg>
+                      Google
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="h-4 w-4 text-violet-100/75 duration-200 ease-in-out group-hover:text-violet-50/75"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </button>
+                <button
+                  class="group relative inline-flex w-full max-w-60 items-center rounded-lg bg-zinc-700/25 px-4 py-2 text-sm font-semibold leading-6 text-violet-50 antialiased shadow-btn-secondary outline-hidden duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:shadow-btn-secondary-hover after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100 sm:w-1/2 sm:max-w-none"
+                >
+                  <div
+                    class="relative z-10 flex w-full items-center justify-between space-x-2 text-nowrap"
+                  >
+                    <div class="flex items-center">
+                      <svg
+                        class="mr-2 h-4 w-4"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                      >
+                        <title>logo-github</title>
+                        <g fill="currentColor">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            fill="currentColor"
+                            d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"
+                          ></path>
+                        </g>
+                      </svg>
+                      Github
+                    </div>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="h-4 w-4 text-violet-100/75 duration-200 ease-in-out group-hover:text-violet-50/75"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <div class="mt-8 flex w-full items-center px-10">
+              <div
+                class="h-px flex-1 bg-linear-to-r from-violet-200/5 to-violet-200/10"
+              ></div>
+              <h4 class="shrink-0 px-4 text-xs text-violet-100/75">
+                or sign in with
+              </h4>
+              <div
+                class="h-px flex-1 bg-linear-to-r from-violet-200/10 to-violet-200/5"
+              ></div>
+            </div>
+
+            <form action="#" method="POST" class="mt-9 px-6 pb-10 sm:px-10">
+              <div class="space-y-8">
+                <div>
+                  <div
+                    class="flex items-end justify-between text-sm leading-none"
+                  >
+                    <label for="email" class="block text-violet-100/75">
+                      Email
+                    </label>
+                  </div>
+                  <div
+                    class="group relative mt-2 flex w-full rounded-md bg-zinc-950/[.01] shadow-inner-blur duration-200 ease-in-out hover:bg-zinc-950/10 has-focus:bg-zinc-950/15"
+                  >
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      class="w-full rounded-md border-0 bg-transparent px-3 py-2.5 text-sm text-violet-50 ring-1 ring-inset ring-violet-200/[0.06] transition-colors duration-200 ease-in-out placeholder:text-zinc-400/80 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-violet-300/15"
+                      autocomplete="email"
+                      placeholder="johnnybravo@gmail.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div
+                    class="flex items-end justify-between text-sm leading-none"
+                  >
+                    <label for="password" class="block text-violet-100/75">
+                      Password
+                    </label>
+
+                    <a
+                      href="password-reset.html"
+                      class="text-violet-300/80 underline duration-200 ease-in-out hover:text-violet-300"
+                    >
+                      Forgot password?
+                    </a>
+                  </div>
+                  <div
+                    class="group relative mt-2 flex w-full rounded-md bg-zinc-950/[.01] shadow-inner-blur duration-200 ease-in-out hover:bg-zinc-950/10 has-focus:bg-zinc-950/15"
+                  >
+                    <input
+                      id="password"
+                      type="password"
+                      name="password"
+                      class="w-full rounded-md border-0 bg-transparent px-3 py-2.5 text-sm text-violet-50 ring-1 ring-inset ring-violet-200/[0.06] transition-colors duration-200 ease-in-out placeholder:text-zinc-400/80 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-violet-300/15"
+                      autocomplete="current-password"
+                      placeholder="Password (min. 6 characters)"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="mt-10 flex items-center justify-between space-x-4 sm:mt-12"
+              >
+                <p class="text-sm text-violet-100/75">
+                  Don’t have an account?
+                  <a
+                    class="text-violet-300/80 underline duration-200 ease-in-out hover:text-violet-300"
+                    href="signup.html"
+                    >Sign up</a
+                  >
+                </p>
+                <button
+                  type="submit"
+                  class="group relative inline-flex items-center rounded-lg bg-btn-primary px-3.5 py-2 text-sm font-semibold text-violet-50 antialiased shadow-btn-primary outline-hidden after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:bg-btn-primary-hover after:opacity-0 after:shadow-btn-primary-hover after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100 sm:px-5 sm:py-2.5 sm:text-[15px]"
+                >
+                  <div
+                    class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                  >
+                    <span>Sign in</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      class="h-4 w-4"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
