@@ -70,7 +70,7 @@
     <meta property="twitter:image" content="assets/LOGO3.png" />
   </head>
 
-  <body class="bg-zinc-900">
+  <body class="overflow-x-hidden bg-zinc-900">
     <!-- Hero container -->
     <section class="relative">
       <!-- Header -->
@@ -80,7 +80,7 @@
         >
           <nav class="relative z-50 flex w-full items-center justify-between">
             <!-- Logo -->
-            <div class="relative z-10 hidden shrink-0 items-center md:flex">
+            <div class="relative z-10 flex shrink-0 items-center">
               <a
                 href="index.html"
                 aria-label="Home"
@@ -89,10 +89,9 @@
                 <img src="assets/LOGO1.png" alt="Hive Hue" class="h-7 w-auto lg:h-8" />
               </a>
             </div>
-
             <!-- NavbarPill -->
             <div
-              class="fixed left-0 flex w-full justify-center px-5 sm:px-6 md:px-0"
+              class="hidden fixed left-0 w-full justify-center px-5 sm:px-6 md:px-0"
               x-data="{ 
                 showButton: false, 
                 mainCtaOffset: 0, 
@@ -219,32 +218,7 @@
                     </a>
                   </div>
 
-                  <!-- Navbar links -->
-                  <!-- Active home -->
-                  <a
-                    href="index.html"
-                    class="relative hidden h-full items-center px-3 py-2.5 text-sm font-semibold text-violet-400 drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)] duration-200 ease-in-out md:inline-flex lg:px-4"
-                  >
-                    Início
-                    <span
-                      class="bg-linear-to-r absolute -bottom-px left-2 right-2 h-px from-violet-400/0 via-violet-400/80 to-violet-400/0"
-                    >
-                  </a>
-
-                  <a
-                    href="negocio.html"
-                    class="relative hidden h-full items-center px-3 py-2.5 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 md:inline-flex lg:px-4 whitespace-nowrap"
-                  >
-                    Para seu negócio
-                  </a>
-
-                  
-
-                  
-
-                  
-
-                  <!-- Mobile cta buttons and hamburger -->
+                  <!-- Mobile cta buttons and hamburger
                   <div class="flex items-center md:hidden">
                     <a
                       href="signin.html"
@@ -260,14 +234,15 @@
                     <a
                       class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative -mr-px inline-flex items-center rounded-full px-3.5 py-1.5 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-full after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100"
                       href="signup.html"
-                      ><div
+                    >
+                      <div
                         class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
                       >
-                        Solicitar demo
-                      </div></a
-                    >
+                        Cadastrar
+                      </div>
+	                    </a>
 
-                    <!-- Hamburger -->
+	                    <!-- Hamburger -->
                     <button
                       class="focus:outline-hidden group relative z-50 ml-4 h-3.5 w-5 rotate-0 transform cursor-pointer transition duration-500 ease-in-out"
                       aria-label="Toggle Navigation"
@@ -291,13 +266,12 @@
                       ></span>
                     </button>
                   </div>
-
-                  <!-- Desktop cta inside pill -->
+	                  <!-- Desktop cta inside pill -->
                   <button
                     id="nav-cta"
+                    type="button"
+                    @click="$dispatch('open-demo-modal')"
                     class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative -mr-px ml-3 hidden items-center rounded-full px-3.5 py-1.5 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-full after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100"
-                    href="signup.html"
-                    size="sm"
                     x-ref="navCta"
                     x-show="showButton"
                     :class="windowWidth < 768 ? 'hidden!' : ''"
@@ -314,9 +288,8 @@
                       Solicitar demo
                     </div>
                   </button>
-                </div>
-              </div>
-
+	                </div>
+	              </div>
               <!-- Pages dropdown -->
               <div
                 style="display: none"
@@ -429,7 +402,7 @@
                     class="bg-linear-to-b absolute inset-y-0 left-0 w-px from-violet-400/0 via-violet-400/90 to-violet-400/0 opacity-0 duration-200 ease-in-out group-hover:opacity-100"
                   />
                 </a>
-
+<!--
                 <a
                   href="signin.html"
                   class="hover:shadow-inner-blur-light group relative z-10 block text-nowrap px-4 py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
@@ -454,7 +427,7 @@
                     class="bg-linear-to-b absolute inset-y-0 left-0 w-px from-violet-400/0 via-violet-400/90 to-violet-400/0 opacity-0 duration-200 ease-in-out group-hover:opacity-100"
                   />
                 </a>
-
+-->
                 <a
                   href="signup.html"
                   class="hover:shadow-inner-blur-light group relative z-10 block text-nowrap px-4 py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
@@ -527,282 +500,10 @@
                 </a>
               </div>
 
-              <!-- Mobile menu -->
-              <div
-                class="absolute inset-x-0 top-[60px] z-40 mx-5 flex justify-center sm:mx-6 md:hidden"
-              >
-                <div
-                  x-show="mobileMenuOpen"
-                  x-transition:enter="duration-300 ease-out"
-                  x-transition:enter-start="-translate-y-16 opacity-50 scale-90"
-                  x-transition:enter-end="opacity-100 scale-100 translate-y-0"
-                  x-transition:leave="duration-150 ease-in"
-                  x-transition:leave-start="opacity-100 scale-100 translate-y-0"
-                  x-transition:leave-end="opacity-50 scale-90 -translate-y-16"
-                  class="shadow-inner-blur z-30 w-full max-w-lg overflow-hidden rounded-xl bg-[#1F1F24]/80 px-5 pb-5 pt-4 backdrop-blur-lg backdrop-brightness-[85%] transition after:absolute after:inset-0 after:rounded-xl after:border after:border-violet-200/[.06] sm:left-6 sm:right-6 sm:mx-6"
-                  @click.away="mobileMenuOpen = false"
-                >
-                  <div
-                    class="relative z-10 flex flex-col divide-y divide-violet-200/5"
-                  >
-                    <a
-                      href="index.html"
-                      class="px-1.5 pb-2 pt-4 text-[15px] font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95"
-                    >
-                      Home
-                    </a>
-
-                    <a
-                      href="about.html"
-                      class="px-1.5 pb-2 pt-4 text-[15px] font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95"
-                    >
-                      About
-                    </a>
-
-                    <a
-                      href="pricing.html"
-                      class="px-1.5 pb-2 pt-4 text-[15px] font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95"
-                    >
-                      Pricing
-                    </a>
-
-                    <a
-                      href="contact.html"
-                      class="px-1.5 pb-2 pt-4 text-[15px] font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95"
-                    >
-                      Contact
-                    </a>
-
-                    <!-- Pages dropdown button -->
-                    <div class="block w-full" x-data="{ open: false }">
-                      <button
-                        type="button"
-                        class="group flex w-full items-center justify-between px-1.5 pb-2 pt-4 text-[15px] font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95"
-                        :class="open ? 'text-violet-400/95' : 'text-violet-50 group-hover:text-violet-400/95'"
-                        @click="open = !open"
-                        :aria-expanded="open"
-                      >
-                        <span>Pages</span>
-
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 16 16"
-                          fill="currentColor"
-                          class="h-4.5 w-4.5 ml-2 duration-200 ease-in-out"
-                          :class="open ? 'rotate-90 text-violet-400/90' : 'text-violet-100/80 group-hover:text-violet-400/80'"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                      <div
-                        class="space-y-1 px-3 pt-0.5"
-                        style="display: none"
-                        x-show.transition="open"
-                        x-collapse
-                      >
-                        <a
-                          href="index.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                d="M8.543 2.232a.75.75 0 0 0-1.085 0l-5.25 5.5A.75.75 0 0 0 2.75 9H4v4a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V9h1.25a.75.75 0 0 0 .543-1.268l-5.25-5.5Z"
-                              />
-                            </svg>
-
-                            Home
-                          </span>
-                        </a>
-
-                        <a
-                          href="about.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                d="M8.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10.9 12.006c.11.542-.348.994-.9.994H2c-.553 0-1.01-.452-.902-.994a5.002 5.002 0 0 1 9.803 0ZM14.002 12h-1.59a2.556 2.556 0 0 0-.04-.29 6.476 6.476 0 0 0-1.167-2.603 3.002 3.002 0 0 1 3.633 1.911c.18.522-.283.982-.836.982ZM12 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
-                              />
-                            </svg>
-
-                            About
-                          </span>
-                        </a>
-
-                        <a
-                          href="pricing.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                d="M2.5 3A1.5 1.5 0 0 0 1 4.5V5h14v-.5A1.5 1.5 0 0 0 13.5 3h-11Z"
-                              />
-                              <path
-                                fill-rule="evenodd"
-                                d="M15 7H1v4.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V7ZM3 10.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1-.75-.75Zm3.75-.75a.75.75 0 0 0 0 1.5h2.5a.75.75 0 0 0 0-1.5h-2.5Z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-
-                            Pricing
-                          </span>
-                        </a>
-
-                        <a
-                          href="contact.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M1.756 4.568A1.5 1.5 0 0 0 1 5.871V12.5A1.5 1.5 0 0 0 2.5 14h11a1.5 1.5 0 0 0 1.5-1.5V5.87a1.5 1.5 0 0 0-.756-1.302l-5.5-3.143a1.5 1.5 0 0 0-1.488 0l-5.5 3.143Zm1.82 2.963a.75.75 0 0 0-.653 1.35l4.1 1.98a2.25 2.25 0 0 0 1.955 0l4.1-1.98a.75.75 0 1 0-.653-1.35L8.326 9.51a.75.75 0 0 1-.652 0L3.575 7.53Z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-
-                            Contact
-                          </span>
-                        </a>
-
-                        <a
-                          href="signin.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0Zm-5-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM8 9c-1.825 0-3.422.977-4.295 2.437A5.49 5.49 0 0 0 8 13.5a5.49 5.49 0 0 0 4.294-2.063A4.997 4.997 0 0 0 8 9Z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-
-                            Entrar
-                          </span>
-                        </a>
-
-                        <a
-                          href="signup.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                d="M8.5 4.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 13c.552 0 1.01-.452.9-.994a5.002 5.002 0 0 0-9.802 0c-.109.542.35.994.902.994h8ZM12.5 3.5a.75.75 0 0 1 .75.75v1h1a.75.75 0 0 1 0 1.5h-1v1a.75.75 0 0 1-1.5 0v-1h-1a.75.75 0 0 1 0-1.5h1v-1a.75.75 0 0 1 .75-.75Z"
-                              />
-                            </svg>
-
-                            Cadastrar
-                          </span>
-                        </a>
-
-                        <a
-                          href="password-reset.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                d="M11.5 1A3.5 3.5 0 0 0 8 4.5V7H2.5A1.5 1.5 0 0 0 1 8.5v5A1.5 1.5 0 0 0 2.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 9.5 7V4.5a2 2 0 1 1 4 0v1.75a.75.75 0 0 0 1.5 0V4.5A3.5 3.5 0 0 0 11.5 1Z"
-                              />
-                            </svg>
-
-                            Password reset
-                          </span>
-                        </a>
-
-                        <a
-                          href="404.html"
-                          class="group relative z-10 block text-nowrap py-2 text-sm font-medium text-violet-50 drop-shadow-[-4px_-4px_6px_rgba(237,233,254,0.2)] duration-200 ease-in-out hover:text-violet-400/95 hover:drop-shadow-[-4px_-4px_6px_rgba(196,181,253,0.2)]"
-                        >
-                          <span class="flex items-center">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              class="mr-2 h-4 w-4 text-violet-100/60 group-hover:text-violet-300/80"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14ZM8 4a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-
-                            404
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div class="hidden items-center md:flex lg:space-x-3 xl:space-x-4">
-              <a
-                href="signin.html"
-                class="outline-hidden group inline-flex items-center overflow-hidden rounded-lg px-3.5 py-1.5 text-sm font-semibold text-violet-50 antialiased hover:text-white"
-              >
-                <div
-                  class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
-                >
-                  Entrar
-                </div>
-              </a>
-
-              <!-- Call to action -->
-              <a
-                href="signup.html"
-                class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative inline-flex items-center rounded-lg px-3.5 py-1.5 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100"
-                ><div
-                  class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
-                >
-                  Cadastrar
-                </div></a
-              >
+            <div class="hidden items-center lg:space-x-3 xl:space-x-4">
+	              <!-- Call to action -->
             </div>
           </nav>
 
@@ -833,7 +534,37 @@
           class="max-w-(--breakpoint-xl) mx-auto w-full gap-16 px-5 pb-16 pt-20 sm:px-6 sm:pb-20 lg:px-8 lg:pt-28"
         >
           <!-- Text content -->
-          <div x-data="{ modalOpen: false, videoSrc: '' }">
+          <div
+            x-data="{
+              formModalOpen: false,
+              videoModalOpen: false,
+              videoSrc: '',
+              demoForm: {
+                name: '',
+                email: '',
+                company: '',
+                phone: '',
+                message: ''
+              },
+              openDemoModal() {
+                this.formModalOpen = true
+              },
+              submitDemo() {
+                const subject = encodeURIComponent('Solicitação de demo - Hive Hue')
+                const body = encodeURIComponent(
+                  `Nome: ${this.demoForm.name || '-'}\n` +
+                  `Email: ${this.demoForm.email || '-'}\n` +
+                  `Empresa: ${this.demoForm.company || '-'}\n` +
+                  `Telefone: ${this.demoForm.phone || '-'}\n\n` +
+                  `Mensagem:\n${this.demoForm.message || '-'}`
+                )
+
+                window.location.href = `mailto:contato@hivehue.io?subject=${subject}&body=${body}`
+                this.formModalOpen = false
+              }
+            }"
+            x-on:open-demo-modal.window="formModalOpen = true"
+          >
             <div class="relative z-10 flex flex-col items-center">
               <div
                 class="shadow-inner-blur flex items-center rounded-full bg-zinc-950/[.01]"
@@ -864,15 +595,15 @@
                 class="mt-5 max-w-5xl text-center text-[2.75rem] font-bold leading-[1.125] text-violet-100 sm:text-5xl sm:leading-[1.125] md:text-6xl md:leading-[1.125] lg:text-[64px]"
               >
                 Organize, ative e monetize
-                <span class="relative inline-block text-nowrap">
+                <span class="relative inline-block">
                   <span
-                    class="bg-linear-to-b relative z-10 from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
+                    class="relative z-10 block leading-none bg-linear-to-b from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
                   >
                     Comunidades de inovação
                   </span>
-                  <span class="absolute -top-px left-0 -z-10 text-violet-300"
-                    >Comunidades de inovação </span
-                  >
+                  <span class="absolute inset-0 -z-10 block leading-none text-violet-300">
+                    Comunidades de inovação
+                  </span>
                 </span>
                 <br>com mais resultados.
               </h1>
@@ -882,26 +613,27 @@
                 A Hive Hue reúne comunidades, oportunidades, eventos, serviços, CRM e IA de matching para universidades, hubs, empresas, investidores e governos ativarem seu ecossistema em escala.
               </p>
               <div
-                class="mt-8 flex items-center justify-center space-x-3 sm:space-x-5"
+                class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-5"
               >
-                <a
-                  href="signup.html"
+                <button
+                  type="button"
+                    @click="$dispatch('open-demo-modal')"
                   class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative inline-flex items-center rounded-lg px-3.5 py-2 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100 sm:px-4 sm:py-2.5 sm:text-[15px]"
                   id="top-cta"
                 >
                   <div
-                    class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                    class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
                   >
                     Solicitar demo
                   </div>
-                </a>
+                </button>
                 <button
                   type="button"
-                  @click="modalOpen = true; videoSrc = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1'"
+                  @click="videoModalOpen = true; videoSrc = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1'"
                   class="outline-hidden group inline-flex cursor-pointer items-center overflow-hidden rounded-lg px-3.5 py-2 text-sm font-semibold text-violet-50 antialiased hover:text-white sm:px-4 sm:py-2.5 sm:text-[15px]"
                 >
                   <div
-                    class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                    class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
                   >
                     <span
                       class="flex h-7 w-7 items-center justify-center rounded-full bg-white/[.07] transition duration-200 ease-in-out group-hover:bg-white/10"
@@ -924,18 +656,156 @@
               </div>
             </div>
 
+            <!-- Demo form modal -->
+            <div
+              class="fixed inset-0 z-50 h-full w-full overflow-y-auto px-4 py-8 transition duration-150 ease-linear"
+              aria-modal="true"
+              x-show="formModalOpen"
+              @keydown.window.escape="formModalOpen = false"
+              style="display: none"
+            >
+              <div
+                class="backdrop-blur-xs fixed inset-0 bg-black/50"
+                x-show="formModalOpen"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="bg-black/0"
+                x-transition:enter-end="bg-black/50"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="bg-black/50"
+                x-transition:leave-end="bg-black/0"
+              ></div>
+              <div
+                class="relative mx-auto flex min-h-full w-full max-w-2xl items-center justify-center"
+                x-show="formModalOpen"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95 translate-y-6"
+                x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                x-transition:leave="transition ease-out duration-300"
+                x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+                x-transition:leave-end="opacity-0 scale-95 translate-y-6"
+              >
+                <div
+                  class="shadow-inner-blur relative w-full rounded-2xl bg-[#1F1F24]/95 p-5 sm:p-6 after:absolute after:inset-0 after:rounded-2xl after:border after:border-violet-200/[.06]"
+                  @click.away="formModalOpen = false"
+                >
+                  <button
+                    type="button"
+                    class="shadow-btn-secondary outline-hidden after:shadow-btn-secondary-hover group absolute right-4 top-4 z-50 flex items-center rounded-lg bg-zinc-950/[.01] p-2 text-sm font-semibold text-violet-50 antialiased duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100"
+                    @click="formModalOpen = false"
+                  >
+                    <div
+                      class="relative z-10 flex w-full items-center justify-center"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="h-4.5 w-4.5"
+                      >
+                        <path
+                          d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+                        />
+                      </svg>
+                    </div>
+                  </button>
+                  <div class="relative z-10">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-violet-300/80">
+                      Solicitar demo
+                    </p>
+                    <h2 class="mt-3 text-3xl font-bold text-violet-100">
+                      Fale com a Hive Hue
+                    </h2>
+                    <p class="mt-2 text-sm leading-6 text-zinc-300">
+                      Preencha os campos e seu e-mail vai abrir com a mensagem pronta para envio para contato@hivehue.io.
+                    </p>
+
+                    <form class="mt-6 grid gap-4" @submit.prevent="submitDemo()">
+                      <div class="grid gap-4 sm:grid-cols-2">
+                        <label class="grid gap-2 text-sm font-medium text-violet-500">
+                          <span class="text-violet-100">Nome</span>
+                          <input
+                            type="text"
+                            x-model="demoForm.name"
+                            required
+                            class="w-full rounded-lg border border-violet-200/10 bg-zinc-100 px-4 py-3 text-sm text-zinc-500 outline-none transition placeholder:text-zinc-500 focus:border-violet-400/60"
+                            placeholder="Seu nome"
+                          />
+                        </label>
+                        <label class="grid gap-2 text-sm font-medium text-violet-500">
+                          <span class="text-violet-100">E-mail</span>
+                          <input
+                            type="email"
+                            x-model="demoForm.email"
+                            required
+                            class="w-full rounded-lg border border-violet-200/10 bg-zinc-100 px-4 py-3 text-sm text-zinc-500 outline-none transition placeholder:text-zinc-500 focus:border-violet-400/60"
+                            placeholder="voce@empresa.com"
+                          />
+                        </label>
+                      </div>
+
+                      <div class="grid gap-4 sm:grid-cols-2">
+                        <label class="grid gap-2 text-sm font-medium text-violet-500">
+                          <span class="text-violet-100">Empresa</span>
+                          <input
+                            type="text"
+                            x-model="demoForm.company"
+                            class="w-full rounded-lg border border-violet-200/10 bg-zinc-100 px-4 py-3 text-sm text-zinc-500 outline-none transition placeholder:text-zinc-500 focus:border-violet-400/60"
+                            placeholder="Nome da empresa"
+                          />
+                        </label>
+                        <label class="grid gap-2 text-sm font-medium text-violet-500">
+                          <span class="text-violet-100">Telefone</span>
+                          <input
+                            type="tel"
+                            x-model="demoForm.phone"
+                            class="w-full rounded-lg border border-violet-200/10 bg-zinc-100 px-4 py-3 text-sm text-zinc-500 outline-none transition placeholder:text-zinc-500 focus:border-violet-400/60"
+                            placeholder="(00) 00000-0000"
+                          />
+                        </label>
+                      </div>
+
+                      <label class="grid gap-2 text-sm font-medium text-violet-500">
+                        <span class="text-violet-100">Mensagem</span>
+                        <textarea
+                          x-model="demoForm.message"
+                          rows="4"
+                          class="w-full resize-none rounded-lg border border-violet-200/10 bg-zinc-500 px-4 py-3 text-sm text-zinc-500 outline-none transition placeholder:text-zinc-500 focus:border-violet-400/60"
+                          placeholder="Conte um pouco sobre o que você precisa"
+                        ></textarea>
+                      </label>
+
+                      <div class="flex flex-col gap-3 sm:flex-row sm:justify-end">
+                        <button
+                          type="button"
+                          class="rounded-lg border border-violet-200/10 px-4 py-2.5 text-sm font-semibold text-violet-100 transition hover:bg-white/[.03]"
+                          @click="formModalOpen = false"
+                        >
+                          Cancelar
+                        </button>
+                        <button
+                          type="submit"
+                          class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100"
+                        >
+                          <span class="relative z-10">Enviar por e-mail</span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <!-- Video modal -->
             <div
               class="fixed inset-0 z-50 h-full w-full overflow-hidden px-4 transition duration-150 ease-linear"
               aria-modal="true"
-              x-show="modalOpen"
-              @keydown.window.escape="modalOpen = false; videoSrc = ''"
+              x-show="videoModalOpen"
+              @keydown.window.escape="videoModalOpen = false; videoSrc = ''"
               style="display: none"
             >
-              <!-- Modal overlay -->
               <div
                 class="backdrop-blur-xs fixed inset-0 bg-black/50"
-                x-show="modalOpen"
+                x-show="videoModalOpen"
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="bg-black/0"
                 x-transition:enter-end="bg-black/50"
@@ -945,7 +815,7 @@
               ></div>
               <div
                 class="mx-auto flex min-h-screen w-auto items-center justify-center"
-                x-show="modalOpen"
+                x-show="videoModalOpen"
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 scale-75 translate-y-80"
                 x-transition:enter-end="opacity-100 scale-100 translate-y-0"
@@ -955,15 +825,15 @@
               >
                 <div
                   class="shadow-inner-blur relative max-h-full w-full max-w-5xl rounded-2xl bg-white/[.02] p-2 after:absolute after:inset-0 after:rounded-2xl after:border after:border-violet-200/[.04]"
-                  @click.away="modalOpen = false; videoSrc = ''"
+                  @click.away="videoModalOpen = false; videoSrc = ''"
                 >
                   <button
                     type="button"
                     class="shadow-btn-secondary outline-hidden after:shadow-btn-secondary-hover group absolute -top-12 right-2 z-50 flex items-center rounded-lg bg-zinc-950/[.01] p-2 px-4 py-2 text-sm font-semibold text-violet-50 antialiased duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100 lg:-top-14 lg:p-2.5"
-                    @click="modalOpen = false; videoSrc = ''"
+                    @click="videoModalOpen = false; videoSrc = ''"
                   >
                     <div
-                      class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                      class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1178,13 +1048,13 @@
             class="leading-extratight sm:leading-extratight max-w-5xl overflow-hidden text-wrap text-center text-4xl font-bold text-violet-100 sm:text-5xl"
           >
             Acelere seu ecossistema com
-            <span class="relative inline-block text-nowrap">
+            <span class="relative inline-block">
               <span
-                class="bg-linear-to-b relative z-10 from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
+                class="relative z-10 block leading-none bg-linear-to-b from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
               >
                 ferramentas conectadas
               </span>
-              <span class="absolute -top-px left-0 -z-10 text-violet-300">
+              <span class="absolute inset-0 -z-10 block leading-none text-violet-300">
                 ferramentas conectadas
               </span>
             </span>
@@ -1251,16 +1121,17 @@
                   >
                     <div>
                       <p class="text-sm font-bold text-violet-400">
-                        <span class="relative inline-block text-nowrap">
+                        <span class="relative inline-block sm:text-nowrap">
                           <span
-                            class="bg-linear-to-b relative z-10 from-violet-400 via-violet-400 to-violet-500 bg-clip-text leading-none text-transparent"
+                            class="bg-linear-to-b relative z-10 block leading-none from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
                           >
                             Participantes
                           </span>
                           <span
-                            class="absolute left-0 top-[-0.5px] -z-10 text-violet-300"
-                            >Participantes</span
+                            class="absolute inset-0 -z-10 block leading-none text-violet-300"
                           >
+                            Participantes
+                          </span>
                         </span>
                       </p>
                       <h3
@@ -1364,7 +1235,7 @@
                           class="shadow-btn-secondary outline-hidden after:shadow-btn-secondary-hover group relative z-10 inline-flex cursor-pointer items-center rounded-lg bg-zinc-950/[.01] px-4 py-2 text-sm font-semibold text-violet-50 antialiased duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100"
                         >
                           <div
-                            class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                            class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
                           >
                             <span>Explorar oportunidades</span>
                             <svg
@@ -1425,16 +1296,17 @@
                   >
                     <div>
                       <p class="text-sm font-bold text-violet-400">
-                        <span class="relative inline-block text-nowrap">
+                        <span class="relative inline-block sm:text-nowrap">
                           <span
-                            class="bg-linear-to-b relative z-10 from-violet-400 via-violet-400 to-violet-500 bg-clip-text leading-none text-transparent"
+                            class="bg-linear-to-b relative z-10 block leading-none from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
                           >
                             CRM e governanca
                           </span>
                           <span
-                            class="absolute left-0 top-[-0.5px] -z-10 text-violet-300"
-                            >CRM e governanca</span
+                            class="absolute inset-0 -z-10 block leading-none text-violet-300"
                           >
+                            CRM e governanca
+                          </span>
                         </span>
                       </p>
                       <h3
@@ -1452,7 +1324,7 @@
                           class="shadow-btn-secondary outline-hidden after:shadow-btn-secondary-hover group relative z-10 inline-flex cursor-pointer items-center rounded-lg bg-zinc-950/[.01] px-4 py-2 text-sm font-semibold text-violet-50 antialiased duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100"
                         >
                           <div
-                            class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                            class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
                           >
                             <span>Learn more</span>
                             <svg
@@ -1521,16 +1393,17 @@
                   <div class="px-8 pb-10 pt-8 sm:px-10 sm:pb-12 xl:px-12">
                     <div>
                       <p class="text-sm font-bold text-violet-400">
-                        <span class="relative inline-block text-nowrap">
+                        <span class="relative inline-block sm:text-nowrap">
                           <span
-                            class="bg-linear-to-b relative z-10 from-violet-400 via-violet-400 to-violet-500 bg-clip-text leading-none text-transparent"
+                            class="bg-linear-to-b relative z-10 block leading-none from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
                           >
                             Comunidades e engajamento
                           </span>
                           <span
-                            class="absolute left-0 top-[-0.5px] -z-10 text-violet-300"
-                            >Comunidades e engajamento</span
+                            class="absolute inset-0 -z-10 block leading-none text-violet-300"
                           >
+                            Comunidades e engajamento
+                          </span>
                         </span>
                       </p>
                       <h3
@@ -1550,7 +1423,7 @@
                           class="shadow-btn-secondary outline-hidden after:shadow-btn-secondary-hover group relative z-10 inline-flex cursor-pointer items-center rounded-lg bg-zinc-950/[.01] px-4 py-2 text-sm font-semibold text-violet-50 antialiased duration-200 ease-in-out after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:bg-violet-900/[0.03] hover:text-white hover:after:opacity-100"
                         >
                           <div
-                            class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
+                            class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
                           >
                             <span>Learn more</span>
                             <svg
@@ -2032,7 +1905,7 @@
               Sua comunidade,
               <br />
               sob sua
-              <span class="relative inline-block text-nowrap">
+              <span class="relative inline sm:inline-block sm:text-nowrap">
                 <span
                   class="bg-linear-to-b relative z-10 from-violet-400 via-violet-400 to-violet-500 bg-clip-text text-transparent"
                 >
@@ -2048,19 +1921,20 @@
             >
               Crie experiências digitais com a identidade da sua organização, mantendo relacionamento contínuo com participantes, parceiros, clientes, alunos, fornecedores e stakeholders.
             </p>
-            <div
-              class="mt-8 flex items-center justify-center space-x-3 sm:space-x-5"
-            >
-              <a
-                href="signup.html"
-                class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative inline-flex items-center rounded-lg px-3.5 py-2 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100 sm:px-4 sm:py-2.5 sm:text-[15px]"
-                ><div
-                  class="relative z-10 flex w-full items-center justify-center space-x-2 text-nowrap"
-                >
-                  Solicitar demo
-                </div>
-              </a>
-            </div>
+            <!--  <div
+                class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-5"
+              >
+                <button
+                  type="button"
+                  @click="$dispatch('open-demo-modal')"
+                  class="bg-btn-primary shadow-btn-primary outline-hidden after:bg-btn-primary-hover after:shadow-btn-primary-hover group relative inline-flex items-center rounded-lg px-3.5 py-2 text-sm font-semibold text-violet-50 antialiased after:absolute after:inset-0 after:h-full after:w-full after:rounded-lg after:opacity-0 after:transition-all after:duration-200 after:content-[''] hover:after:opacity-100 sm:px-4 sm:py-2.5 sm:text-[15px]"
+                  ><div
+                    class="relative z-10 flex w-full items-center justify-center space-x-2 sm:text-nowrap"
+                  >
+                    Solicitar demo
+                  </div>
+                </button>
+              </div>-->
           </div>
         </div>
 
